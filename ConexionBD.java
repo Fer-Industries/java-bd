@@ -13,7 +13,7 @@ public class ConexionBD{
 
 			Class.forName("com.mysql.cj.jdbc.Driver");//Obtiene el driver
 			//recuerden que aqui tienen que poner su usuario y contraseña al final de la liga
-			conexion = DriverManager.getConnection("jdbc:mysql://localhost/northwind?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC&autoReconnect=true&useSSL=false&" +"user=root&password=iscoala10");
+			conexion = DriverManager.getConnection("jdbc:mysql://localhost/northwind?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC&autoReconnect=true&useSSL=false&" +"user=root&password=root");
 
 			if(conexion != null)
 				System.out.println("Success Conecction");

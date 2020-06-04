@@ -8,7 +8,7 @@ public class Principal{
 			System.out.println("\nNuestro primer proyecto de Java con Base de Datos");
 			System.out.println("1.- ");
 			System.out.println("2.-Producto mas vendido por year ");
-			System.out.println("3.- ");
+			System.out.println("3.-Producto(s) menos vendido por año ");
 			System.out.println("4.- ");
 			System.out.println("5.- ");
 			System.out.println("6.-Empleado que menos ha vendido por a\u00f1o ");
@@ -30,7 +30,16 @@ public class Principal{
 				System.out.println("Dame el anio que deseas buscar sus ventas: ");
 				crud.productoMasVendidoXYear(sc.nextInt());
 
+
 				break;
+
+                case 3: 
+                    System.out.println("Ingrese el anio a buscar"); 
+                    crud.showProductoMenosVendido(sc.nextInt());
+                    System.out.println("------------------------------");
+
+                break;
+
 				case 6:
 					System.out.println("\nDe que a\u00f1o quiere saber el empleado que ha vendio menos");
 					crud.menorVendedor(sc.nextInt());
@@ -43,7 +52,6 @@ public class Principal{
 				break;
 				case 0:
 					System.out.println("Que tenga un buen dia le desea Northwind");
-					crud.menorVendedor(sc.nextInt());
 				break;
 
 				default:

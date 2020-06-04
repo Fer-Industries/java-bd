@@ -79,6 +79,27 @@ ResultSet rs = ctmt.executeQuery();
 	}
 
 
+    public void showProductoMenosVendido(int anio){
+		String proc = "{ call showProductoMenosVendido(?) }";
+		try{
+			CallableStatement ctmt = mysqlc.prepareCall(proc);
+			ctmt.setInt(1,anio); // como asignas valores al proc.
 
 
-}
+			ResultSet rs = ctmt.executeQuery();
+			while(rs.next()){
+				System.out.println("ID: " + rs.getString("ProductID"));
+				System.out.println("Nombre: " + rs.getString("ProductName"));
+				System.out.println("Unidades vendidas: " + rs.getString("NUM"));
+				
+			}
+
+		}catch(SQLException sqle){
+			System.out.println("Error de SQL " + sqle.getMessage());	
+		}
+	}	
+
+
+ }
+
+
