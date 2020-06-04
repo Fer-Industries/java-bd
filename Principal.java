@@ -2,19 +2,21 @@ import java.util.Scanner;
 
 public class Principal{
 	public static void main(String [] args){
+		Dao crud = new Dao();
 		int opcion = 1;
 		do{
-			System.out.println("Nuestro primer proyecto de Java con Base de Datos");
+			System.out.println("\nNuestro primer proyecto de Java con Base de Datos");
 			System.out.println("1.- ");
 			System.out.println("2.- ");
 			System.out.println("3.- ");
 			System.out.println("4.- ");
 			System.out.println("5.- ");
-			System.out.println("6.- ");
+			System.out.println("6.-Empleado que menos ha vendido por a\u00f1o ");
 			System.out.println("7.- ");
 			System.out.println("8.- ");
 			System.out.println("9.- ");
 			System.out.println("0.- Salir del programa");
+			System.out.println("Brinde una opcion por favor ");
 			Scanner sc = new Scanner(System.in);
 		
 			
@@ -25,9 +27,13 @@ public class Principal{
 
 				break;
 
-
+				case 6:
+					System.out.println("\nDe que a\u00f1o quiere saber el empleado que ha vendio menos");
+					crud.menorVendedor(sc.nextInt());
+				break;
 				case 0:
 					System.out.println("Que tenga un buen dia le desea Northwind");
+					crud.menorVendedor(sc.nextInt());
 				break;
 				
 				default:
