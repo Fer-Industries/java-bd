@@ -55,7 +55,7 @@ class Dao{
 		String proc = "{ call getMinShipper() }";
 		try{
 			CallableStatement ctmt = mysqlc.prepareCall(proc);
-ResultSet rs = ctmt.executeQuery();
+			ResultSet rs = ctmt.executeQuery();
 			while(rs.next()){
 				System.out.println(rs.getInt("ShipVia") + " " +rs.getString("CompanyName") +" "  + rs.getInt("Entregas"));
 			}
@@ -150,6 +150,31 @@ ResultSet rs = ctmt.executeQuery();
 		}
 	}
 
- }
+	public void nuevoProducto(Producto productoNuevo){
+	String proc ="{ call addProduct(?,?,?,?,?,?,?,?,?) }";
+		try {
+			CallableStatement ctmt = mysqlc.prepareCall(proc);
+			ctmt.setString(1,productoNuevo.getProduct_Name() );
+			ctmt.setInt(2,productoNuevo.getSupplier_ID());
+			ctmt.setInt(3,productoNuevo.getCategory_ID());
+			ctmt.setString(4,productoNuevo.getQuantityper_Unit());
+			ctmt.setDouble(5,productoNuevo.getUnit_Price());
+			ctmt.setShort(6,productoNuevo.getUnits_In_Stock());
+			ctmt.setShort(7,productoNuevo.getUnits_On_Order());
+			ctmt.setShort(8,productoNuevo.getReorder_Level() );
+			ctmt.setByte(9,productoNuevo.getNew_Discontinued());
+
+			ResultSet rs = ctmt.executeQuery();
+			while (rs.next()){
+				System.out.println("El producto agregado es: "+rs.getString("ProductName")+ " su categoria es: "+
+					rs.getInt("CategoryID")+" y su proveedor es: "+ rs.getInt("SupplierID"));
+			}
+		}catch(SQLException sqle){
+			System.out.println("Error de SQL "+ sqle.getMessage());
+		}
+
+	}
+
+}
 
 
