@@ -6,7 +6,7 @@ public class Principal{
 		int opcion = 1;
 		do{
 			System.out.println("\nNuestro primer proyecto de Java con Base de Datos");
-			System.out.println("1.- ");
+			System.out.println("1.- Cliente con mas compras por año");
 			System.out.println("2.-Producto mas vendido por year ");
 			System.out.println("3.-Producto(s) menos vendido por año ");
 			System.out.println("4.- ");
@@ -24,6 +24,10 @@ public class Principal{
 
 			switch(opcion){
 				case 1:
+
+				System.out.println("Introduzaca el año que desea obtener");	
+				crud.ShowClientes(sc.nextInt());
+
 
 				break;
 				case 2:

@@ -100,6 +100,25 @@ ResultSet rs = ctmt.executeQuery();
 	}	
 
 
+	public void ShowClientes(int year){
+		String proc = "{ call obteberCliente(?) }";
+		try{
+			CallableStatement ctmt = mysqlc.prepareCall(proc);
+			ctmt.setInt(1,year); // como asignas valores al proc.
+
+
+			ResultSet rs = ctmt.executeQuery();
+			while(rs.next()){
+				System.out.println("El cliente con mas compras es:  " + rs.getString("CustomerID"));
+
+
+			}
+		}catch(SQLException sqle){
+			System.out.println("Error de SQL " + sqle.getMessage());	
+		}
+	}
+
+
  }
 
 
