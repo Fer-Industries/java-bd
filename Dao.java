@@ -119,6 +119,37 @@ ResultSet rs = ctmt.executeQuery();
 	}
 
 
+	public void showTerritories(){
+		String sqlSelect = "select TerritoryID, territoryDescription from territories order by TerritoryID desc;";
+		
+		try{
+			Statement stmt = mysqlc.createStatement(); 			
+			ResultSet rs = stmt.executeQuery(sqlSelect); 
+			while(rs.next()){			
+				System.out.println("ID territorio " + rs.getString("TerritoryID" ));
+				System.out.println("Nombre Territorio " + rs.getString("territoryDescription"));
+			}
+		}catch(SQLException sqle){
+			System.out.println("Error de SQL "+ sqle.getMessage());
+		}
+	}
+
+	public void insertarEmpleado(Empleado empleado){
+		String proc = "{ call agregarEmpleado(?,?,?) }";
+		try{
+			CallableStatement ctmt = mysqlc.prepareCall(proc);
+			ctmt.setString(1,empleado.getLastName());
+			ctmt.setString(2,empleado.getFirstName());
+			ctmt.setString(3,empleado.getTerritoryId());
+			ResultSet rs = ctmt.executeQuery();
+			while(rs.next()){
+				System.out.println("Se ha creado el empleado " + rs.getString("FirstName"));
+			}
+		}catch(SQLException sqle){
+			System.out.println("Error de SQL " + sqle.getMessage());	
+		}
+	}
+
  }
 
 

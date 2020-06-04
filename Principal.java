@@ -14,7 +14,7 @@ public class Principal{
 			System.out.println("6.-Empleado que menos ha vendido por a\u00f1o ");
 			System.out.println("7.- ");
 			System.out.println("8.-Repartidores que mas envios ha hecho y menos envios ha hecho");
-			System.out.println("9.- ");
+			System.out.println("9.- Insertar empleado");
 			System.out.println("0.- Salir del programa");
 			System.out.println("Brinde una opcion por favor ");
 			Scanner sc = new Scanner(System.in);
@@ -53,6 +53,20 @@ public class Principal{
 					crud.showMaxShipper();
 					System.out.println("El repartidor con menos entregas es:");
 					crud.showMinShipper();
+				break;
+				case 9:
+					Scanner scan = new Scanner(System.in);
+					crud.showTerritories();
+
+					Empleado empleadoCrear = new Empleado();
+					System.out.println("Dame el apellido del empleado");
+					empleadoCrear.setLastName(scan.nextLine());
+					System.out.println("Dame el nombre del empleado");
+					empleadoCrear.setFirstName(scan.nextLine());
+					System.out.println("Dame el territorio del empleado");
+					empleadoCrear.setTerritoryId(scan.nextLine());
+					
+					crud.insertarEmpleado(empleadoCrear);
 				break;
 				case 0:
 					System.out.println("Que tenga un buen dia le desea Northwind");
