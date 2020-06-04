@@ -7,7 +7,7 @@ public class Principal{
 		do{
 			System.out.println("\nNuestro primer proyecto de Java con Base de Datos");
 			System.out.println("1.- ");
-			System.out.println("2.- ");
+			System.out.println("2.-Producto mas vendido por year ");
 			System.out.println("3.- ");
 			System.out.println("4.- ");
 			System.out.println("5.- ");
@@ -18,15 +18,19 @@ public class Principal{
 			System.out.println("0.- Salir del programa");
 			System.out.println("Brinde una opcion por favor ");
 			Scanner sc = new Scanner(System.in);
-		
-			
+
+
 			opcion = sc.nextInt();
 
 			switch(opcion){
 				case 1:
 
 				break;
+				case 2:
+				System.out.println("Dame el anio que deseas buscar sus ventas: ");
+				crud.productoMasVendidoXYear(sc.nextInt());
 
+				break;
 				case 6:
 					System.out.println("\nDe que a\u00f1o quiere saber el empleado que ha vendio menos");
 					crud.menorVendedor(sc.nextInt());
@@ -41,7 +45,7 @@ public class Principal{
 					System.out.println("Que tenga un buen dia le desea Northwind");
 					crud.menorVendedor(sc.nextInt());
 				break;
-				
+
 				default:
 					System.out.println("Por favor introduza una opción valida");
 			}

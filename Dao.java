@@ -15,7 +15,7 @@ class Dao{
 		ConexionBD  conexionBD = new ConexionBD();
 		mysqlc = conexionBD.getConnection();
 	}
-	
+
 
 	public void  menorVendedor(int fecha){
 
@@ -28,13 +28,13 @@ class Dao{
 			while(rs.next()){
 				System.out.println("\nEl empleado que menos vendio en la fecha de "+fecha+
 								   "\nFue: "+rs.getString("nombre")+
-								   "\ncon la cantidad de: "+rs.getInt("ventas")+" ventas"); 
+								   "\ncon la cantidad de: "+rs.getInt("ventas")+" ventas");
 				b++;
 			}
 			if(b==0) System.out.println("No se encontro nada relacionado a su busqueda") ;
 		}
 		catch(SQLException sqle){
-			System.out.println("Error de SQL " + sqle);	
+			System.out.println("Error de SQL " + sqle);
 		}
 	}
 
@@ -47,7 +47,7 @@ class Dao{
 				System.out.println(rs.getInt("ShipVia") + " " + rs.getString("CompanyName") +" "   + rs.getInt("Entregas"));
 			}
 		}catch(SQLException sqle){
-			System.out.println("Error de SQL " + sqle.getMessage());	
+			System.out.println("Error de SQL " + sqle.getMessage());
 		}
 	}
 
@@ -60,9 +60,25 @@ ResultSet rs = ctmt.executeQuery();
 				System.out.println(rs.getInt("ShipVia") + " " +rs.getString("CompanyName") +" "  + rs.getInt("Entregas"));
 			}
 		}catch(SQLException sqle){
-			System.out.println("Error de SQL " + sqle.getMessage());	
+			System.out.println("Error de SQL " + sqle.getMessage());
 		}
-	}	
-	
+	}
+
+	public void productoMasVendidoXYear(int anio_solicitado){
+		String proc = "{ call masVendido(?) }";
+		try{
+			CallableStatement ctmt = mysqlc.prepareCall(proc);
+			ctmt.setInt(1,anio_solicitado);
+			ResultSet rs = ctmt.executeQuery();
+			while(rs.next()){
+				System.out.println("El producto mas vendido es " + "'"+rs.getString("ProductName")+"'" + " con un total de ventas de: " + rs.getString("cantidad"));
+			}
+		}catch(SQLException sqle){
+			System.out.println("Error de SQL " + sqle.getMessage());
+		}
+	}
+
+
+
 
 }
