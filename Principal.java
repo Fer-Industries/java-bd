@@ -13,7 +13,7 @@ public class Principal{
 			System.out.println("5.- ");
 			System.out.println("6.-Empleado que menos ha vendido por a\u00f1o ");
 			System.out.println("7.- ");
-			System.out.println("8.- ");
+			System.out.println("8.-Repartidores que mas envios ha hecho y menos envios ha hecho");
 			System.out.println("9.- ");
 			System.out.println("0.- Salir del programa");
 			System.out.println("Brinde una opcion por favor ");
@@ -30,6 +30,12 @@ public class Principal{
 				case 6:
 					System.out.println("\nDe que a\u00f1o quiere saber el empleado que ha vendio menos");
 					crud.menorVendedor(sc.nextInt());
+				break;
+				case 8:
+					System.out.println("El repartidor com mas entregas es:");
+					crud.showMaxShipper();
+					System.out.println("El repartidor con menos entregas es:");
+					crud.showMinShipper();
 				break;
 				case 0:
 					System.out.println("Que tenga un buen dia le desea Northwind");

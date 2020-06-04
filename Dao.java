@@ -37,6 +37,32 @@ class Dao{
 			System.out.println("Error de SQL " + sqle);	
 		}
 	}
+
+	public void showMaxShipper(){
+		String proc = "{ call getMaxShipper() }";
+		try{
+			CallableStatement ctmt = mysqlc.prepareCall(proc);
+			ResultSet rs = ctmt.executeQuery();
+			while(rs.next()){
+				System.out.println(rs.getInt("ShipVia") + " " + rs.getString("CompanyName") +" "   + rs.getInt("Entregas"));
+			}
+		}catch(SQLException sqle){
+			System.out.println("Error de SQL " + sqle.getMessage());	
+		}
+	}
+
+	public void showMinShipper(){
+		String proc = "{ call getMinShipper() }";
+		try{
+			CallableStatement ctmt = mysqlc.prepareCall(proc);
+ResultSet rs = ctmt.executeQuery();
+			while(rs.next()){
+				System.out.println(rs.getInt("ShipVia") + " " +rs.getString("CompanyName") +" "  + rs.getInt("Entregas"));
+			}
+		}catch(SQLException sqle){
+			System.out.println("Error de SQL " + sqle.getMessage());	
+		}
+	}	
 	
 
 }
