@@ -175,6 +175,23 @@ class Dao{
 
 	}
 
+
+
+	public void showEmpleadoXAnio(int year){
+		String proc = "{call encontrarEmpleado (?) }";
+		try{
+            CallableStatement ctmt = mysqlc.prepareCall(proc);
+            ctmt.setInt(1,year);
+
+            ResultSet rs= ctmt.executeQuery();
+            while(rs.next()){
+            	System.out.println("la persona con mas ventas es" + rs.getString("FirstName"));
+            }  
+		}catch(SQLException sqle){
+		   	System.out.println("Error de SQL" + sqle.getMessage());
+		   }
+	}
+
 }
 
 

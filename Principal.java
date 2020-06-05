@@ -9,7 +9,7 @@ public class Principal{
 			System.out.println("1.- Cliente con mas compras por año");
 			System.out.println("2.-Producto mas vendido por year ");
 			System.out.println("3.-Producto(s) menos vendido por año ");
-			System.out.println("4.- Fabian");
+			System.out.println("4.- Empleado con mas ventas por año");
 			System.out.println("6.-Empleado que menos ha vendido por a\u00f1o ");
 			System.out.println("7.- Agregar producto");
 			System.out.println("8.-Repartidores que mas envios ha hecho y menos envios ha hecho");
@@ -42,6 +42,16 @@ public class Principal{
                     System.out.println("------------------------------");
 
                 break;
+
+                case 4:
+                
+
+		
+		           
+		            System.out.println("Dame el año");	
+		            crud.showEmpleadoXAnio(sc.nextInt());
+
+		        break;
 
 				case 6:
 					System.out.println("\nDe que a\u00f1o quiere saber el empleado que ha vendio menos");
